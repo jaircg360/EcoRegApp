@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Foto de evidencia (visible solo si existe) -->
+        <FrameLayout
+            android:id="@+id/frame_foto_detalle"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:layout_marginBottom="12dp">
+            <ImageView
+                android:id="@+id/iv_foto_detalle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="#F0F0F0"
+                android:contentDescription="Foto de evidencia"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:background="#AA000000"
+                android:text="📷 Foto de evidencia"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:padding="4dp"/>
+        </FrameLayout>
+
+        <!-- Datos del registro -->
+        <TextView
+            android:id="@+id/tv_detalle_tipo"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tv_detalle_peso"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tv_detalle_fecha"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tv_detalle_ubicacion"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tv_detalle_zona"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tv_detalle_operario"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tv_detalle_epp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tv_detalle_obs"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tv_detalle_sync"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp"/>
+    </LinearLayout>
+</ScrollView>

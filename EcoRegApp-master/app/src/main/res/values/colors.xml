@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#2E7D32</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="primary_light">#4CAF50</color>
+    <color name="accent">#66BB6A</color>
+    <color name="danger">#D32F2F</color>
+    <color name="warning">#F57F17</color>
+    <color name="info">#1565C0</color>
+    <color name="bg_screen">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface2">#F8F9FA</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#616161</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="divider">#E0E0E0</color>
+    <!-- Colores por tipo de residuo -->
+    <color name="tipo_plastico">#1565C0</color>
+    <color name="tipo_organico">#2E7D32</color>
+    <color name="tipo_papel">#F57F17</color>
+    <color name="tipo_metal">#546E7A</color>
+    <color name="tipo_vidrio">#00838F</color>
+    <color name="tipo_peligroso">#B71C1C</color>
+    <color name="tipo_otros">#6D4C41</color>
+</resources>

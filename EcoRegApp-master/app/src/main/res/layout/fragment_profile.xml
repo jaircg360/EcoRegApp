@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_screen">
+
+    <!-- TOOLBAR -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="@color/primary_dark"
+        android:paddingStart="8dp" android:paddingEnd="8dp">
+        <TextView
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mi Perfil"
+            android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"
+            android:layout_marginStart="16dp"/>
+        <ImageButton
+            android:id="@+id/btn_editar_perfil"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@drawable/ic_edit" android:tint="#FFFFFF"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Editar"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:paddingBottom="72dp" android:clipToPadding="false">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- HEADER FOTO -->
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="center"
+                android:background="@drawable/bg_header_gradient"
+                android:paddingTop="28dp" android:paddingBottom="24dp">
+
+                <!-- Foto circular clickeable -->
+                <FrameLayout
+                    android:id="@+id/frame_foto"
+                    android:layout_width="100dp" android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_foto_perfil"
+                        android:layout_width="100dp" android:layout_height="100dp"
+                        android:src="@drawable/bg_avatar_circle"
+                        app:civ_border_width="3dp"
+                        app:civ_border_color="#FFFFFF"/>
+
+                    <!-- Texto iniciales como fallback -->
+                    <TextView
+                        android:id="@+id/tv_iniciales"
+                        android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF" android:textSize="32sp" android:textStyle="bold"
+                        android:text="OP"/>
+                </FrameLayout>
+
+                <TextView android:id="@+id/tv_nombre_perfil"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Operario"
+                    android:textColor="#FFFFFF" android:textSize="20sp" android:textStyle="bold"
+                    android:layout_marginTop="12dp"/>
+
+                <TextView android:id="@+id/tv_rol_perfil"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Operario · ECOLIM S.A.C."
+                    android:textColor="#BAFFFFFF" android:textSize="12sp"
+                    android:layout_marginTop="2dp"/>
+
+                <!-- Badges ID / Turno / Planta -->
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="10dp">
+                    <TextView android:id="@+id/tv_badge_id"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="OP-01" android:textColor="#FFFFFF" android:textSize="11sp"
+                        android:background="@drawable/bg_badge_outline"
+                        android:paddingStart="8dp" android:paddingEnd="8dp"
+                        android:paddingTop="3dp" android:paddingBottom="3dp"
+                        android:layout_marginEnd="6dp"/>
+                    <TextView android:id="@+id/tv_badge_turno"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Turno M" android:textColor="#FFFFFF" android:textSize="11sp"
+                        android:background="@drawable/bg_badge_outline"
+                        android:paddingStart="8dp" android:paddingEnd="8dp"
+                        android:paddingTop="3dp" android:paddingBottom="3dp"
+                        android:layout_marginEnd="6dp"/>
+                    <TextView android:id="@+id/tv_badge_planta"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Planta A" android:textColor="#FFFFFF" android:textSize="11sp"
+                        android:background="@drawable/bg_badge_outline"
+                        android:paddingStart="8dp" android:paddingEnd="8dp"
+                        android:paddingTop="3dp" android:paddingBottom="3dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- STATS -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:background="@color/surface"
+                android:padding="16dp" android:elevation="2dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:id="@+id/tv_stat_registros"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="0" android:textColor="@color/primary"
+                        android:textSize="24sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Registros" android:textColor="@color/text_hint" android:textSize="11sp"/>
+                </LinearLayout>
+                <View android:layout_width="1dp" android:layout_height="40dp"
+                    android:background="@color/divider"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:id="@+id/tv_stat_kg"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="0 kg" android:textColor="@color/accent"
+                        android:textSize="24sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Kg total" android:textColor="@color/text_hint" android:textSize="11sp"/>
+                </LinearLayout>
+                <View android:layout_width="1dp" android:layout_height="40dp"
+                    android:background="@color/divider"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:id="@+id/tv_stat_dias"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="0" android:textColor="@color/primary"
+                        android:textSize="24sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Días activo" android:textColor="@color/text_hint" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- SECCIÓN CUENTA -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="  CUENTA" android:textColor="@color/text_hint"
+                android:textSize="11sp" android:textStyle="bold"
+                android:layout_marginTop="20dp" android:layout_marginBottom="6dp"
+                android:letterSpacing="0.1"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginStart="12dp" android:layout_marginEnd="12dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                android:layout_marginBottom="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout android:id="@+id/item_datos_personales"
+                        android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp"
+                        android:background="?attr/selectableItemBackground">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_blue" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_edit" android:tint="@color/info"
+                                android:contentDescription="Editar"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Datos personales"
+                                android:textColor="@color/text_primary" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Nombre, teléfono, email"
+                                android:textColor="@color/text_hint" android:textSize="11sp"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_chevron_right" android:tint="@color/text_hint"
+                            android:contentDescription=""/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                        android:background="@color/divider" android:layout_marginStart="64dp"/>
+
+                    <LinearLayout android:id="@+id/item_cambiar_password"
+                        android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp"
+                        android:background="?attr/selectableItemBackground">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_yellow" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_lock" android:tint="@color/warning"
+                                android:contentDescription="Contraseña"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Cambiar contraseña"
+                                android:textColor="@color/text_primary" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Actualiza tu acceso al sistema"
+                                android:textColor="@color/text_hint" android:textSize="11sp"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_chevron_right" android:tint="@color/text_hint"
+                            android:contentDescription=""/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECCIÓN PREFERENCIAS -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="  PREFERENCIAS" android:textColor="@color/text_hint"
+                android:textSize="11sp" android:textStyle="bold"
+                android:layout_marginBottom="6dp" android:letterSpacing="0.1"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginStart="12dp" android:layout_marginEnd="12dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                android:layout_marginBottom="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_green" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_notifications" android:tint="@color/primary"
+                                android:contentDescription="Notificaciones"/>
+                        </LinearLayout>
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Notificaciones"
+                            android:textColor="@color/text_primary" android:textSize="14sp"
+                            android:layout_marginStart="12dp"/>
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switch_notificaciones"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:checked="true"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                        android:background="@color/divider" android:layout_marginStart="64dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_blue" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_import" android:tint="@color/info"
+                                android:contentDescription="WiFi"/>
+                        </LinearLayout>
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Solo sincronizar con WiFi"
+                            android:textColor="@color/text_primary" android:textSize="14sp"
+                            android:layout_marginStart="12dp"/>
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switch_wifi"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECCIÓN DATOS -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="  DATOS" android:textColor="@color/text_hint"
+                android:textSize="11sp" android:textStyle="bold"
+                android:layout_marginBottom="6dp" android:letterSpacing="0.1"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginStart="12dp" android:layout_marginEnd="12dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                android:layout_marginBottom="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout android:id="@+id/item_sincronizacion"
+                        android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp"
+                        android:background="?attr/selectableItemBackground">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_green" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_search" android:tint="@color/primary"
+                                android:contentDescription="Sincronizar"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Sincronizar datos"
+                                android:textColor="@color/text_primary" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Enviar registros al servidor"
+                                android:textColor="@color/text_hint" android:textSize="11sp"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_chevron_right" android:tint="@color/text_hint"
+                            android:contentDescription=""/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                        android:background="@color/divider" android:layout_marginStart="64dp"/>
+
+                    <LinearLayout android:id="@+id/item_limpiar_cache"
+                        android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp"
+                        android:background="?attr/selectableItemBackground">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_gray" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_arrow_back" android:tint="@color/text_hint"
+                                android:contentDescription="Cache" android:rotation="90"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Limpiar caché"
+                                android:textColor="@color/text_primary" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Eliminar datos temporales"
+                                android:textColor="@color/text_hint" android:textSize="11sp"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_chevron_right" android:tint="@color/text_hint"
+                            android:contentDescription=""/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECCIÓN ADMINISTRACIÓN (solo visible para ADMIN) -->
+            <TextView android:id="@+id/tv_seccion_admin"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="  ADMINISTRACIÓN" android:textColor="@color/danger"
+                android:textSize="11sp" android:textStyle="bold"
+                android:layout_marginBottom="6dp" android:letterSpacing="0.1"
+                android:visibility="gone"/>
+
+            <androidx.cardview.widget.CardView android:id="@+id/card_admin"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginStart="12dp" android:layout_marginEnd="12dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout android:id="@+id/item_gestionar_operarios"
+                        android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp"
+                        android:background="?attr/selectableItemBackground">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_danger" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_badge" android:tint="@color/danger"
+                                android:contentDescription="Operarios"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Ver operarios"
+                                android:textColor="@color/text_primary" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Lista y gestión de cuentas"
+                                android:textColor="@color/text_hint" android:textSize="11sp"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_chevron_right" android:tint="@color/text_hint"
+                            android:contentDescription=""/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                        android:background="@color/divider" android:layout_marginStart="64dp"/>
+
+                    <LinearLayout android:id="@+id/item_crear_operario"
+                        android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp"
+                        android:background="?attr/selectableItemBackground">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_danger" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_add" android:tint="@color/danger"
+                                android:contentDescription="Crear"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Crear operario"
+                                android:textColor="@color/text_primary" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Agregar nuevo personal al sistema"
+                                android:textColor="@color/text_hint" android:textSize="11sp"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_chevron_right" android:tint="@color/text_hint"
+                            android:contentDescription=""/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                        android:background="@color/divider" android:layout_marginStart="64dp"/>
+
+                    <!-- Exportar reporte (solo admin) -->
+                    <LinearLayout android:id="@+id/item_exportar_admin"
+                        android:layout_width="match_parent" android:layout_height="54dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="12dp"
+                        android:background="?attr/selectableItemBackground">
+                        <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_danger" android:gravity="center">
+                            <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_chart" android:tint="@color/danger"
+                                android:contentDescription="Exportar"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Exportar reporte general"
+                                android:textColor="@color/text_primary" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="PDF con todos los operarios"
+                                android:textColor="@color/text_hint" android:textSize="11sp"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_chevron_right" android:tint="@color/text_hint"
+                            android:contentDescription=""/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECCIÓN SESIÓN -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="  SESIÓN" android:textColor="@color/text_hint"
+                android:textSize="11sp" android:textStyle="bold"
+                android:layout_marginBottom="6dp" android:letterSpacing="0.1"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginStart="12dp" android:layout_marginEnd="12dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                android:layout_marginBottom="32dp">
+                <LinearLayout android:id="@+id/item_cerrar_sesion"
+                    android:layout_width="match_parent" android:layout_height="54dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:paddingStart="16dp" android:paddingEnd="12dp"
+                    android:background="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="36dp" android:layout_height="36dp"
+                        android:background="@drawable/bg_icon_danger" android:gravity="center">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                            android:src="@drawable/ic_lock" android:tint="@color/danger"
+                            android:contentDescription="Salir"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Cerrar sesión"
+                        android:textColor="@color/danger" android:textSize="14sp" android:textStyle="bold"
+                        android:layout_marginStart="12dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

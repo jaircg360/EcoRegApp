@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EcoRegApp</string>
+    <string name="app_tagline">ECOLIM S.A.C. · Gestión de Residuos</string>
+
+    <!-- Login -->
+    <string name="hint_operario_id">ID de Operario (ej: OP-42)</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_ingresar">Ingresar al sistema</string>
+
+    <!-- Nav labels -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_historial">Historial</string>
+    <string name="nav_reportes">Reportes</string>
+    <string name="nav_perfil">Perfil</string>
+
+    <!-- Registro -->
+    <string name="titulo_registro">Nuevo Registro</string>
+    <string name="hint_peso">Peso en kg (ej: 5.20)</string>
+    <string name="hint_ubicacion">Ubicación (ej: Planta A)</string>
+    <string name="hint_zona">Zona / Sector (ej: Zona B)</string>
+    <string name="hint_observaciones">Observaciones (opcional)</string>
+    <string name="btn_guardar">Guardar Registro</string>
+    <string name="btn_guardar_nuevo">Guardar y Nuevo</string>
+
+    <!-- Tipos -->
+    <string name="tipo_plastico">Plástico</string>
+    <string name="tipo_organico">Orgánico</string>
+    <string name="tipo_papel">Papel</string>
+    <string name="tipo_metal">Metal</string>
+    <string name="tipo_vidrio">Vidrio</string>
+    <string name="tipo_peligroso">Peligroso</string>
+
+    <!-- EPP -->
+    <string name="epp_titulo">⚠️ Residuo Peligroso — Confirmar EPP</string>
+    <string name="epp_guantes">Guantes de nitrilo</string>
+    <string name="epp_mascarilla">Mascarilla N95</string>
+    <string name="epp_lentes">Lentes de seguridad</string>
+
+    <!-- Importar -->
+    <string name="titulo_importar">Importar Datos</string>
+    <string name="btn_csv">Importar CSV</string>
+    <string name="btn_pdf">Importar PDF / TXT</string>
+    <string name="btn_importar">Importar registros</string>
+
+    <!-- Reportes -->
+    <string name="titulo_reportes">Reportes</string>
+    <string name="btn_exportar_pdf">Exportar PDF</string>
+    <string name="btn_exportar_csv">Exportar CSV</string>
+
+    <!-- Éxito -->
+    <string name="exito_titulo">¡Registrado!</string>
+    <string name="exito_desc">El residuo fue guardado exitosamente y está en cola de sincronización.</string>
+</resources>

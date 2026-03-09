@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="14dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Ícono tipo -->
+    <TextView
+        android:id="@+id/tv_emoji"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:background="@drawable/bg_icon_gray"
+        android:layout_marginEnd="12dp"
+        android:text="♻️"/>
+
+    <!-- Info central -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_tipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plástico"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="2dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/tv_zona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zona B"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="2dp">
+            <TextView
+                android:id="@+id/tv_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2026-02-22"
+                android:textColor="@color/text_hint"
+                android:textSize="11sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  ·  "
+                android:textColor="@color/text_hint"
+                android:textSize="11sp"/>
+            <TextView
+                android:id="@+id/tv_operario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Operario"
+                android:textColor="@color/text_hint"
+                android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Peso + badge sync (SIN flecha) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end"
+        android:layout_marginStart="8dp">
+
+        <TextView
+            android:id="@+id/tv_peso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5.20 kg"
+            android:textColor="@color/primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_estado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✓ Sync"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:padding="3dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:background="@drawable/bg_badge_green"/>
+    </LinearLayout>
+
+</LinearLayout>

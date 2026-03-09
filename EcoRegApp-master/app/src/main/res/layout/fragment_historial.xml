@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_screen">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+        android:background="@color/surface" android:elevation="4dp"
+        app:title="Historial" app:titleTextColor="@color/text_primary"/>
+
+    <!-- Búsqueda -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="Buscar por tipo, zona, operario..."
+        app:startIconDrawable="@drawable/ic_search"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:background="@color/surface"
+        android:paddingStart="12dp" android:paddingEnd="12dp" android:paddingBottom="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_buscar"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Chips filtro -->
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:scrollbars="none" android:background="@color/surface"
+        android:paddingStart="12dp" android:paddingEnd="12dp" android:paddingBottom="10dp">
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_filtro"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            app:singleSelection="true">
+            <com.google.android.material.chip.Chip android:id="@+id/chip_f_todos"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Todos" android:checked="true"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_f_plastico"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="♻️ Plástico"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_f_organico"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🌿 Orgánico"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_f_papel"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📄 Papel"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_f_metal"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🔩 Metal"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_f_peligroso"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚠️ Peligroso"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_f_pendiente"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⏳ Pendiente"/>
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- Lista -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_historial"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp"
+        android:clipToPadding="false"/>
+
+    <!-- Vacío -->
+    <TextView android:id="@+id/tv_vacio"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:gravity="center"
+        android:text="Sin registros\nIntenta con otro filtro"
+        android:textColor="@color/text_hint" android:textSize="14sp"
+        android:visibility="gone"/>
+
+</LinearLayout>

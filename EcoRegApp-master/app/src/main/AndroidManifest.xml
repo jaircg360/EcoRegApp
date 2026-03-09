@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ── Permisos de red y almacenamiento ── -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_DOCUMENTS" />
+
+    <!-- ── Cámara ── -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <!-- ── Notificaciones (Android 13+) ── -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- ── Alarmas para recordatorios programados ── -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/eco_reg_logo"
+        android:label="EcoRegApp"
+        android:roundIcon="@drawable/eco_reg_logo"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.EcoRegApp">
+
+        <!-- ── SPLASH — LAUNCHER principal ── -->
+        <activity
+            android:name=".ui.activities.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.EcoRegApp"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ── LOGIN ── -->
+        <activity
+            android:name=".ui.activities.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- ── MAIN (Navigation host) ── -->
+        <activity
+            android:name=".ui.activities.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- ── File Provider para cámara y exportar archivos ── -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.ecolim.ecoregapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- ── Receiver para reiniciar alarmas tras reinicio del dispositivo ── -->
+        <receiver
+            android:name=".utils.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ── Receiver para disparar notificaciones programadas ── -->
+        <receiver
+            android:name=".utils.NotificationReceiver"
+            android:exported="false" />
+
+    </application>
+</manifest>

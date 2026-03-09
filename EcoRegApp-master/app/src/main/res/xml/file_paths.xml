@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Para exportar PDF/CSV -->
+    <external-files-path name="exports" path="Documents/EcoRegApp/"/>
+    <!-- Para fotos temporales (caché) -->
+    <cache-path name="cache" path="."/>
+    <!-- Para fotos de evidencia persistentes -->
+    <files-path name="evidencias" path="evidencias/"/>
+    <!-- Para fotos de perfil -->
+    <files-path name="perfil" path="perfil/"/>
+</paths>

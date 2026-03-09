@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_screen">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+        android:background="@color/surface" android:elevation="4dp"
+        app:title="Importar Datos" app:titleTextColor="@color/text_primary"
+        app:navigationIcon="@drawable/ic_arrow_back" app:navigationIconTint="@color/text_primary"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- Instrucciones -->
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:cardCornerRadius="18dp"
+                app:cardElevation="3dp" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="📋 ¿Cómo importar?" android:textColor="@color/primary"
+                        android:textSize="14sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="• CSV: columnas tipo, peso, fecha, ubicacion, zona\n• PDF/TXT: una línea por registro con formato: tipo,peso,fecha,ubicacion,zona\n• Ejemplo: plastico,5.2,2026-02-22,Planta A,Zona B"
+                        android:textColor="@color/text_secondary" android:textSize="12sp" android:lineSpacingExtra="4dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Botón CSV -->
+            <Button android:id="@+id/btn_seleccionar_csv"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="📄 Seleccionar archivo CSV"
+                android:padding="16dp" android:textSize="15sp" android:textStyle="bold"
+                android:backgroundTint="@color/primary" android:textColor="@android:color/white"
+                app:cornerRadius="14dp" android:layout_marginBottom="10dp"/>
+
+            <!-- Botón PDF/TXT -->
+            <Button android:id="@+id/btn_seleccionar_pdf"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="📑 Seleccionar PDF / TXT"
+                android:padding="14dp" android:textSize="14sp" android:textStyle="bold"
+                android:backgroundTint="@color/surface2" android:textColor="@color/primary"
+                app:cornerRadius="14dp" android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/primary"/>
+
+            <!-- Archivo seleccionado -->
+            <TextView android:id="@+id/tv_archivo_seleccionado"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/text_primary" android:textSize="14sp"
+                android:background="@drawable/bg_card_rounded" android:padding="14dp"
+                android:layout_marginBottom="10dp" android:visibility="gone"/>
+
+            <!-- Progress -->
+            <ProgressBar android:id="@+id/progress_importar"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center" android:visibility="gone"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Resultado -->
+            <TextView android:id="@+id/tv_resultado_importacion"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary" android:textSize="13sp"
+                android:background="@drawable/bg_card_rounded" android:padding="14dp"
+                android:layout_marginBottom="12dp" android:visibility="gone"/>
+
+            <!-- Preview placeholder -->
+            <LinearLayout android:id="@+id/layout_preview"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+            <!-- Botón importar -->
+            <Button android:id="@+id/btn_importar"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="⬇️ Importar registros"
+                android:padding="15dp" android:textSize="15sp" android:textStyle="bold"
+                android:backgroundTint="@color/accent" android:textColor="@color/text_primary"
+                app:cornerRadius="14dp" android:layout_marginBottom="20dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

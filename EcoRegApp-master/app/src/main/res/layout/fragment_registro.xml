@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+            <ImageButton
+                android:id="@+id/btn_back_registro"
+                android:layout_width="40dp" android:layout_height="40dp"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="@color/primary"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Atrás"/>
+            <TextView
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nuevo Registro"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp" android:textStyle="bold"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Tipo de residuo -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Tipo de residuo *" android:textColor="@color/text_hint"
+            android:textSize="12sp" android:layout_marginBottom="6dp"/>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_tipo"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            app:singleSelection="true"
+            android:layout_marginBottom="16dp">
+            <com.google.android.material.chip.Chip android:id="@+id/chip_tipo_plastico"
+                android:tag="plastico"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Plástico" style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_tipo_organico"
+                android:tag="organico"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Orgánico" style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_tipo_papel"
+                android:tag="papel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Papel" style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_tipo_peligroso"
+                android:tag="peligroso"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Peligroso" style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chip_tipo_otros"
+                android:tag="otros"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Otros" style="@style/Widget.MaterialComponents.Chip.Filter"/>
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Peso -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Peso (kg) *"
+            app:startIconDrawable="@drawable/ic_weight"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="14dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_peso"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Ubicación -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Ubicación *"
+            app:startIconDrawable="@drawable/ic_location"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="14dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ubicacion"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Zona -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Zona"
+            app:startIconDrawable="@drawable/ic_map_pin"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="14dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_zona"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Observaciones -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Observaciones"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="14dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_observaciones"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textMultiLine" android:minLines="2"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- EPP Alert -->
+        <LinearLayout
+            android:id="@+id/layout_epp_alert"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:background="@drawable/bg_epp_alert"
+            android:padding="12dp" android:layout_marginBottom="14dp"
+            android:visibility="gone">
+            <CheckBox
+                android:id="@+id/cb_epp_confirmado"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:buttonTint="@color/warning"/>
+            <TextView
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Confirmo que utilizo el EPP requerido para este residuo"
+                android:textColor="@color/warning" android:textSize="12sp"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Foto Evidencia -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Foto de evidencia (opcional)"
+            android:textColor="@color/text_hint" android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <Button
+                android:id="@+id/btn_tomar_foto"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tomar foto"
+                android:textSize="13sp"
+                app:cornerRadius="10dp"
+                android:backgroundTint="@color/primary"
+                android:layout_marginEnd="6dp"/>
+        </LinearLayout>
+
+        <!-- Preview foto -->
+        <LinearLayout
+            android:id="@+id/layout_foto_preview"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:background="@drawable/bg_card_rounded"
+            android:padding="10dp" android:layout_marginBottom="14dp"
+            android:visibility="gone">
+            <ImageView
+                android:id="@+id/iv_foto_evidencia"
+                android:layout_width="60dp" android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="Foto evidencia"/>
+            <TextView
+                android:id="@+id/tv_foto_nombre"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/text_primary" android:textSize="12sp"
+                android:layout_marginStart="10dp"/>
+            <ImageButton
+                android:id="@+id/btn_quitar_foto"
+                android:layout_width="32dp" android:layout_height="32dp"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="@color/danger"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Quitar foto"
+                android:rotation="180"/>
+        </LinearLayout>
+
+        <!-- Botón Guardar -->
+        <Button
+            android:id="@+id/btn_guardar_registro"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Guardar Registro"
+            android:padding="16dp" android:textSize="16sp" android:textStyle="bold"
+            app:cornerRadius="14dp"
+            android:backgroundTint="@color/primary"
+            android:layout_marginTop="8dp" android:layout_marginBottom="24dp"/>
+
+    </LinearLayout>
+</ScrollView>
